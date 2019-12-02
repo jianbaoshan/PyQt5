@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow,QApplication,QDesktopWidget
+from PyQt5.QtWidgets import QMainWindow,QApplication,QDesktopWidget,QWidget,QHBoxLayout,QPushButton
 from PyQt5.QtGui import QIcon
 
 #窗口类型有三种：Main Window、Widget、Dialg
@@ -23,6 +23,29 @@ class FirstWindow(QMainWindow):
 
         #显示状态栏的消息：只存在5秒钟
         self.status.showMessage("只存在5秒的消息", 5000)
+
+        #添加控件按键来控制窗口的退出
+        self.button1 = QPushButton('退出窗口')
+        #将信号与槽关联起来
+        self.button1.clicked.connect(self.ButtonQuit)
+
+        #水平布局，将按钮放到水平布局上
+        layout = QHBoxLayout()
+        layout.addWidget(self.button1)
+
+
+        mainFrame = QWidget()
+        mainFrame.setLayout(layout)
+
+        self.setCentralWidget(mainFrame)
+
+    #按钮事件来退出窗口
+    def ButtonQuit(self):
+        sen = self.sender()
+        #print(sen.text() + '按钮被按下')
+        app = QApplication.instance()
+        #退出窗口
+        app.quit()
 
     # 让窗口居中显示，以窗口的左上角的顶点来确定
     def center(self):

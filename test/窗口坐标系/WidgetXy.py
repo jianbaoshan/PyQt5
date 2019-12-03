@@ -44,7 +44,7 @@ class WidgetXY(QWidget):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    #设置主窗口的图标
+    #设置主窗口的图标和应用程序的图标
     app.setWindowIcon(QIcon('./1.jpg'))
     ui = WidgetXY()
     ui.show()

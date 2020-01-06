@@ -22,7 +22,6 @@ from PyQt5.QtWidgets import *
 class QMessageDemon(QWidget):
     def __init__(self):
         super(QMessageDemon, self).__init__()
-        self.but1 = QPushButton()
         self.setUi()
 
     def setUi(self):
